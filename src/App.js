@@ -22,7 +22,7 @@ function App() {
     };
 
     const handleAddTask = async () => {
-        let post = await fetch('http://localhost:4000/api/send', {
+        let post = await fetch('http://localhost:4000/api/todo', {
             method: 'post',
             headers: {
                 'Content-Type': 'application/json',
@@ -34,7 +34,7 @@ function App() {
     };
 
     const deleteClick = async (spot) => {
-        let delet = await fetch('http://localhost:4000/api/delete', {
+        let delet = await fetch('http://localhost:4000/api/todo', {
             method: 'delete',
             headers: {
                 'Content-Type': 'application/json',
@@ -44,6 +44,19 @@ function App() {
         let data = await delet.json();
         setTodoList(data.todoList);
     };
+
+    const editTask = async (value, location) => {
+        let edit = await fetch('http://localhost:4000/api/todo', {
+            method: 'put',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ value, location }),
+        });
+        let data = await edit.json();
+        setTodoList(data.todoList);
+    };
+
     return (
         <div>
             <div className="Row">
@@ -51,7 +64,11 @@ function App() {
                 <Button onClick={handleAddTask}>add task</Button>
             </div>
             <div>
-                <List todoList={todoList} deleteClick={deleteClick} />
+                <List
+                    todoList={todoList}
+                    deleteClick={deleteClick}
+                    editTask={editTask}
+                />
             </div>
         </div>
     );

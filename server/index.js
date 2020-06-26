@@ -11,13 +11,18 @@ app.use(bodyParser.json());
 
 app.get('/api/todo', (req, res) => res.send({ todoList: todoList }));
 
-app.post('/api/send', (req, res) => {
+app.post('/api/todo', (req, res) => {
     todoList.push(req.body.userInput);
     return res.send({ todoList: todoList });
 });
 
-app.delete('/api/delete', (req, res) => {
+app.delete('/api/todo', (req, res) => {
     todoList.splice(req.body.spot, 1);
+    return res.send({ todoList: todoList });
+});
+
+app.put('/api/todo', (req, res) => {
+    todoList.splice(req.body.location, 1, req.body.value);
     return res.send({ todoList: todoList });
 });
 
