@@ -1,0 +1,67 @@
+.BeerInfoCard {
+    padding: 10px;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.InfoText {
+    max-width: 600px;
+}
+
+.BeerImage {
+    max-height: 500px;
+    max-width: auto;
+    padding: 16px;
+    margin-right: 200px;
+}
+
+.Title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: cornflowerblue;
+    color: white;
+    height: 80px;
+    margin-bottom: 100px;
+}
+
+.SmallTitle {
+    display: flex;
+    justify-content: center;
+    background-color: crimson;
+    color: white;
+    padding: 8px;
+}
+
+.Description {
+    border: 1px solid black;
+    padding: 8px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 150px;
+    margin-bottom: 30px;
+    list-style-type: none;
+}
+
+@media (max-width: 425px) {
+    .BeerInfoCard {
+        padding: 16px;
+    }
+    .InfoText {
+        padding: 16px;
+    }
+    .Title {
+        padding: 16px;
+    }
+}
+
+@media (max-width: 1010px) {
+    .BeerImage {
+        margin-right: 0;
+    }
+}

@@ -1,0 +1,30 @@
+.SearchArea {
+    display: flex;
+    width: 100%;
+    max-width: 500px;
+    margin-bottom: 14px;
+}
+
+.AllBeer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 800px;
+    align-items: center;
+}
+
+@media (max-width: 425px) {
+    .SearchArea {
+        padding: 16px;
+    }
+    .AllBeer {
+        padding: 16px;
+    }
+}
+
+.TitlePage {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 8px;
+}
