@@ -12,10 +12,12 @@ function BeerSearch() {
     const history = useHistory();
     const location = useLocation();
     const params = qs.parse(location.search);
-    const [userInput, setUserInput] = useState('');
+    const [userInput, setUserInput] = useState(
+        history.location.search.slice(6).replace('%20', ' ')
+    );
 
     const handleInputChange = (event) => {
-        setUserInput(event.target.value.replace(' ', '_'));
+        setUserInput(event.target.value);
     };
 
     const [beer, { data: beerData }] = useMutation(BeerSearchMutation);
@@ -44,7 +46,7 @@ function BeerSearch() {
 
     return (
         <div className="TitlePage">
-            <h2 aria-label="What to Drink">What to Drink?</h2>
+            <h2 aria-label="Beer Pairing">Beer Pairing</h2>
             <div className="AllBeer">
                 <div className="SearchArea">
                     <Input
@@ -52,6 +54,7 @@ function BeerSearch() {
                         onChange={handleInputChange}
                         onKeyPress={handleEnterKey}
                         aria-label="what are you eating"
+                        value={userInput}
                     />
                     <Button
                         type="primary"
@@ -61,12 +64,20 @@ function BeerSearch() {
                         Search
                     </Button>
                 </div>
-                <div>
-                    <BeerCards
-                        beerData={beerData}
-                        onClick={handleBeerCardClick}
-                    />
-                </div>
+                {beerData?.beer?.length > 0 && (
+                    <div>
+                        <BeerCards
+                            beerData={beerData}
+                            onClick={handleBeerCardClick}
+                        />
+                    </div>
+                )}
+                {beerData?.beer?.length === 0 && (
+                    <div className="BeerSearch__badSearch">
+                        There are no results. Please check your spelling or try
+                        searching for something else!
+                    </div>
+                )}
             </div>
         </div>
     );

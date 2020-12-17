@@ -20,6 +20,9 @@
     .AllBeer {
         padding: 16px;
     }
+    .BeerSearch__badSearch {
+        padding: 16px;
+    }
 }
 
 .TitlePage {
@@ -27,4 +30,9 @@
     align-items: center;
     flex-direction: column;
     margin-top: 8px;
+}
+
+.BeerSearch__badSearch {
+    margin-top: 16px;
+    padding: 16px;
 }
