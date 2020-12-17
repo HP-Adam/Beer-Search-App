@@ -20,7 +20,7 @@ function BeerSearch() {
         setUserInput(event.target.value);
     };
 
-    const [beer, { data: beerData }] = useMutation(BeerSearchMutation);
+    const [beer, { data: beerData, loading }] = useMutation(BeerSearchMutation);
     const handleSearchClick = () => {
         if (userInput !== '') {
             beer({ variables: { food: userInput } });
@@ -78,6 +78,7 @@ function BeerSearch() {
                         searching for something else!
                     </div>
                 )}
+                {loading && <div className="BeerSearch__loader" />}
             </div>
         </div>
     );
