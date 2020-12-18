@@ -12,11 +12,26 @@ function BeerCards(props) {
             beerImg = item.image;
         }
         return (
-            <div className="Cards" onClick={handleClick} aria-label={item.name}>
-                <img className="BeerCardImg" src={beerImg} alt="beer" />
+            <div
+                className="Cards"
+                onClick={handleClick}
+                aria-label={item.name}
+                key={i}
+                data-testid="Cards"
+            >
+                <img
+                    className="BeerCardImg"
+                    src={beerImg}
+                    alt="beer"
+                    data-testid="BeerCardImg"
+                />
                 <div className="BeerCardTextAlignment">
-                    <h2 className="BeerCardText">{item.name}</h2>
-                    <h3 className="BeerCardText">Abv: {item.abv}</h3>
+                    <h2 className="BeerCardText" data-testid="BeerCardName">
+                        {item.name}
+                    </h2>
+                    <h3 className="BeerCardText" data-testid="BeerCardABV">
+                        Abv: {item.abv}
+                    </h3>
                 </div>
             </div>
         );

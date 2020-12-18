@@ -13,25 +13,36 @@ function BeerInfo() {
         return null;
     }
     return (
-        <div>
-            <h1 className="Title">{beerData.singleBeer.name}</h1>
+        <div data-testid="BeerInfo">
+            <h1 className="Title" data-testid="Title">
+                {beerData.singleBeer.name}
+            </h1>
             <div className="BeerInfoCard">
                 <img
                     className="BeerImage"
                     src={beerData.singleBeer.image}
                     alt="beer"
+                    data-testid="BeerImage"
                 />
                 <div className="InfoText">
-                    <h2 className="SmallTitle">{beerData.singleBeer.name}</h2>
+                    <h2 className="SmallTitle" data-testid="SmallTitle">
+                        {beerData.singleBeer.name}
+                    </h2>
                     <div className="Description">
-                        <p>{beerData.singleBeer.description}</p>
-                        <p>Abv: {beerData.singleBeer.abv}</p>
+                        <p data-testid="Description">
+                            {beerData.singleBeer.description}
+                        </p>
+                        <p data-testid="ABV">Abv: {beerData.singleBeer.abv}</p>
                     </div>
                     <h2 className="SmallTitle">Pairs best with:</h2>
                     <ul className="Description">
-                        <li>{beerData.singleBeer.foodPairing[0]}</li>
-                        <li>{beerData.singleBeer.foodPairing[1]}</li>
-                        <li>{beerData.singleBeer.foodPairing[2]}</li>
+                        {beerData.singleBeer.foodPairing.map((item, i) => {
+                            return (
+                                <li key={i} data-testid={`FoodList${i}`}>
+                                    {item}
+                                </li>
+                            );
+                        })}
                     </ul>
                 </div>
             </div>
