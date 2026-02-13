@@ -11,14 +11,14 @@
         "antd": "^4.4.2",
         "apollo-boost": "^0.4.9",
         "apollo-server-express": "^2.15.1",
-        "express": "^4.17.1",
+        "express": "^4.22.1",
         "heroku": "^7.42.5",
         "nodemon": "^2.0.4",
         "query-string": "^6.13.1",
         "react": "^16.13.1",
         "react-dom": "^16.13.1",
         "react-router-dom": "^5.2.0",
-        "react-scripts": "3.4.1"
+        "react-scripts": "5.0.1"
     },
     "scripts": {
         "start": "react-scripts build && node server/index.js",
